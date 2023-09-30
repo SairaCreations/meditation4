@@ -1,3 +1,4 @@
+//pojo kind class to hold graphdata with getter setters
 class GraphData {
   int _startOfDay = 0;
   int _endOfDay = 0;

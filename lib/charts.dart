@@ -17,8 +17,11 @@ class DataItem {
       {required this.x, required this.y1, required this.y2, required this.y3});
 }
 
+//make global variable so that it can be used everywhere
+//need to initialize with default constructor
 GraphList graphList2 = GraphList();
 
+//do we need stateful. ?
 class Charts extends StatefulWidget {
   final String listName;
   Charts({required this.listName, Key? key}) : super(key: key);
@@ -29,6 +32,7 @@ class Charts extends StatefulWidget {
 
 class _ChartsState extends State<Charts> {
   User? user = FirebaseAuth.instance.currentUser;
+  //initState - call all async wait functions to get the data from firestore
   @override
   void initState() {
     // TODO: implement initState
@@ -41,11 +45,15 @@ class _ChartsState extends State<Charts> {
     DateTime getPastTime = DateTime.fromMillisecondsSinceEpoch(time7daysago);
     GraphList graphList = GraphList.withDate(getPastTime, DateTime.now());
     //Future(()
+
+    //if you dont bind the future to the widget, the build may happen before
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       graphList2 = await timeMachine.getRecordsGreaterThanTimestamp(
           getPastTime, user!.uid, graphList);
       setState(() {});
     });
+
+    //get rid of all this log- checking if it initializes the graphList
     for (int i = 0; i < 7; i++) {
       developer.log(graphList2.dataList![i].totalMinutes.toString(),
           name: "GRAPHLIST");
@@ -61,7 +69,7 @@ class _ChartsState extends State<Charts> {
 
   //developer.log(time7daysago.toString(), name: "ALMOST4");
   //developer.debugger();
-
+//dont need, this is from the fl_charts code
   final List<DataItem> _myData = List.generate(
       30,
       (index) => DataItem(
@@ -246,6 +254,7 @@ class _ChartsState extends State<Charts> {
     );
   }
 
+//tried to create function to put string instead of 1 ,2,3 but didnt work
   String dayOfWeek(int dayNumber) {
     switch (dayNumber) {
       case 1:

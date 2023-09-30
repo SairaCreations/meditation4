@@ -4,6 +4,7 @@ import 'dart:developer' as developer;
 
 import 'package:meditation4/GraphList.dart';
 
+//class wtih helper functions
 class TimeMachine {
   final store = FirebaseFirestore.instance;
   User? user = FirebaseAuth.instance.currentUser;
@@ -11,6 +12,7 @@ class TimeMachine {
     return DateTime.now().millisecondsSinceEpoch;
   }
 
+//function to get the starting point- time from where the graph is displayed ie 7 days ago
   int getTimeInMilliseconds7DaysAgo() {
     final currentTimeInMillis = getCurrentTimeInMillis();
     const sevenDaysInMilliseconds = 7 * 24 * 60 * 60 * 1000;
@@ -18,6 +20,7 @@ class TimeMachine {
     return time7DaysAgo;
   }
 
+//get a list of milllliseconds at midnight for past 7 days. This will be used to split the work done into days
   List<int> getMidnightMillisForLast7Days() {
     final List<int> midnightMillisList = [];
     final DateTime now = DateTime.now();
@@ -39,6 +42,7 @@ class TimeMachine {
   */
   }
 
+//async function to get data from firestore
   Future<GraphList> getRecordsGreaterThanTimestamp(
       DateTime timestamp, String userLocal, GraphList graphList) async {
     //GraphList graphList = GraphList.withDate(timestamp, DateTime.now());
@@ -62,8 +66,10 @@ class TimeMachine {
           final int hours = doc['hours'] as int;
           final int minutes = doc['minutes'] as int;
           final String userID = doc['user'] as String;
-
+          //once we get the snapshot of data, we need to populate the graphList with this data, so calling catchAndPopulate
           GraphList.catchAndPopulate(timestamp, hours, minutes, graphList);
+
+          //get rid of all these log statements
           developer.log('Date Worked: $dateWorked', name: "ALMOST");
           developer.log('Hours: $hours', name: "ALMOST");
           developer.log('Minutes: $minutes', name: "ALMOST");
@@ -109,12 +115,15 @@ class TimeMachine {
       // }
     } catch (e) {
       // Handle any potential errors here
+      //
       print('Error fetching data: $e');
     }
 
     return graphList;
   }
 
+//another function to get the minutes worked in each day for the current user
+//name is a bit misleading. Not using this function anywhere
   Future<double?> getHoursWorkedForDate(
       String dateWorked, String userID) async {
     try {

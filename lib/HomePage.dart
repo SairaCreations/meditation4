@@ -123,6 +123,7 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> changeText() async {
     setState(() {
+      //dynamic stopwatch, one button changes function - toggle on off
       if (stopwatch.isRunning) {
         var now = DateTime.now();
         Duration duration = stopwatch.elapsed;

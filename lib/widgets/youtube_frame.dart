@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:meditation4/carousel.dart';
 import 'package:meditation4/widgets/start_stop_fav_section.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import '../Service/Auth_Service.dart';
@@ -99,7 +100,12 @@ class _YoutubeAppDemoState extends State<YoutubeAppDemo> {
         return Scaffold(
           appBar: AppBar(
             title: const Text('Saira Creations Concentration Videos'),
-
+            leading: IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () => Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (builder) => const Carousel()),
+                    (route) => false)),
             //  actions: const [VideoPlaylistIconButton()],
             actions: [
               IconButton(
