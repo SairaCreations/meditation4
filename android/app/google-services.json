@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "119032565865",
+    "project_id": "meditation4-271cb",
+    "storage_bucket": "meditation4-271cb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:119032565865:android:9ba6d93d8445d12ef5d2f8",
+        "android_client_info": {
+          "package_name": "com.example.meditation4"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "119032565865-aktj4lma5j377d4kp6ct192rra2b83ne.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuUN_SwTZ6NMR2JQw8MvuENmX8xkB6xuk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "119032565865-aktj4lma5j377d4kp6ct192rra2b83ne.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
