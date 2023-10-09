@@ -14,116 +14,222 @@ class Carousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double viewportFraction =
+        MediaQuery.of(context).size.width >= 768 ? 0.4 : 0.8;
+
+    double newheights = MediaQuery.of(context).size.width >= 768 ? 625 : 525;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Pick Your Theme"),
+        backgroundColor: const Color.fromARGB(255, 27, 40, 62),
+        title: const Text(
+          "Choose Your Ambience!",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
       ),
-      body: ListView(
-        children: [
-          CarouselSlider(
-            items: [
-              //1st Image of Slider
-
-              GestureDetector(
-                child: Container(
-                  margin: const EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: const DecorationImage(
-                      image: AssetImage("assets/castleboat1.jpg"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                onTap: () {
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                          builder: (builder) =>
-                              YoutubeAppDemo(listName: 'CottageCore')),
-                      (route) => false);
-                },
-              ),
-
-              //2nd Image of Slider
-              GestureDetector(
-                child: Container(
-                  margin: const EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: const DecorationImage(
-                      image: AssetImage("assets/darkcastle1.jpg"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                onTap: () {
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                          builder: (builder) =>
-                              YoutubeAppDemo(listName: 'CozyStudyVibes')),
-                      (route) => false);
-                },
-              ),
-
-              //3rd Image of Slider
-              GestureDetector(
-                child: Container(
-                  margin: const EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: const DecorationImage(
-                      image: AssetImage("assets/underwatercastle1.jpg"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                onTap: () {
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                          builder: (builder) =>
-                              YoutubeAppDemo(listName: 'DarkAcademia')),
-                      (route) => false);
-                },
-              ),
-              //4th Image of Slider
-              GestureDetector(
-                child: Container(
-                  margin: const EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: const DecorationImage(
-                      image: AssetImage("assets/darkcastlepath2.jpg"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                onTap: () {
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                          builder: (builder) =>
-                              YoutubeAppDemo(listName: 'AnimeLowFi')),
-                      (route) => false);
-                },
-              )
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color.fromARGB(255, 27, 40, 62),
+              Color.fromARGB(255, 146, 110, 124)
             ],
-
-            //Slider Container properties
-            options: CarouselOptions(
-              height: 585.0,
-              enlargeCenterPage: true,
-              autoPlay: true,
-              aspectRatio: 2 / 3,
-              autoPlayCurve: Curves.fastOutSlowIn,
-              enableInfiniteScroll: true,
-              autoPlayAnimationDuration: const Duration(milliseconds: 800),
-              viewportFraction: 0.8,
-            ),
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
           ),
-        ],
+        ),
+        child: ListView(
+          children: [
+            CarouselSlider(
+              items: [
+                //1st Image of Slider
+
+                GestureDetector(
+                  child: Stack(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.0),
+                          image: const DecorationImage(
+                            image: AssetImage("assets/naturedesk.jpg"),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        // ),
+                      ),
+                      Positioned(
+                        bottom: 50,
+                        right: 50,
+                        child: ClipRect(
+                          // Wrap the text in a ClipRect
+                          child: Container(
+                            child: const Text(
+                              'Fantasy',
+                              style: TextStyle(
+                                fontSize: 23,
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  onTap: () {
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                            builder: (builder) =>
+                                YoutubeAppDemo(listName: 'CottageCore')),
+                        (route) => false);
+                  },
+                ),
+
+                //2nd Image of Slider
+                GestureDetector(
+                  child: Stack(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.0),
+                          image: const DecorationImage(
+                            image: AssetImage("assets/citydesk.jpg"),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 50,
+                        right: 50,
+                        child: ClipRect(
+                          // Wrap the text in a ClipRect
+                          child: Container(
+                            child: const Text(
+                              'Minimalist',
+                              style: TextStyle(
+                                fontSize: 23,
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  onTap: () {
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                            builder: (builder) =>
+                                YoutubeAppDemo(listName: 'CozyStudyVibes')),
+                        (route) => false);
+                  },
+                ),
+
+                //3rd Image of Slider
+                GestureDetector(
+                  child: Stack(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.0),
+                          image: const DecorationImage(
+                            image: AssetImage("assets/darkacademia.jpg"),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 50,
+                        right: 50,
+                        child: ClipRect(
+                          // Wrap the text in a ClipRect
+                          child: Container(
+                            child: const Text(
+                              'Dark Academia',
+                              style: TextStyle(
+                                fontSize: 23,
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  onTap: () {
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                            builder: (builder) =>
+                                YoutubeAppDemo(listName: 'DarkAcademia')),
+                        (route) => false);
+                  },
+                ),
+                //4th Image of Slider
+                GestureDetector(
+                  child: Stack(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.0),
+                          image: const DecorationImage(
+                            image: AssetImage("assets/animedesk.jpg"),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 50,
+                        right: 50,
+                        child: ClipRect(
+                          // Wrap the text in a ClipRect
+                          child: Container(
+                            child: const Text(
+                              'Anime Lo-Fi',
+                              style: TextStyle(
+                                fontSize: 23,
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  onTap: () {
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                            builder: (builder) =>
+                                YoutubeAppDemo(listName: 'AnimeLowFi')),
+                        (route) => false);
+                  },
+                )
+              ],
+
+              //Slider Container properties
+              options: CarouselOptions(
+                height: newheights,
+                enlargeCenterPage: true,
+                autoPlay: true,
+                aspectRatio: 2 / 3,
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enableInfiniteScroll: true,
+                autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                viewportFraction: viewportFraction,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

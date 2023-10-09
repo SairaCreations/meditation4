@@ -94,11 +94,16 @@ class _YoutubeAppDemoState extends State<YoutubeAppDemo> {
 
   @override
   build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return YoutubePlayerScaffold(
       controller: _controller,
       builder: (context, player) {
         return Scaffold(
+          resizeToAvoidBottomInset: false,
           appBar: AppBar(
+            backgroundColor: Color.fromARGB(255, 27, 40, 62),
             title: const Text('Saira Creations Concentration Videos'),
             leading: IconButton(
                 icon: const Icon(Icons.arrow_back),
@@ -141,11 +146,14 @@ class _YoutubeAppDemoState extends State<YoutubeAppDemo> {
               ),
             ],
           ),
-          body: LayoutBuilder(
+          /*body: LayoutBuilder(
             builder: (context, constraints) {
               if (kIsWeb && constraints.maxWidth > 750) {
-                return Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                return Column(
+                  //Row(
+                  //crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Expanded(
                       flex: 5,
@@ -157,25 +165,80 @@ class _YoutubeAppDemoState extends State<YoutubeAppDemo> {
                         ],
                       ),
                     ),
+                    Spacer(
+                      flex: 1,
+                    ),
                     const Expanded(
                       flex: 2,
                       child: SingleChildScrollView(
-                          //  child: Controls(),
+                          //child: Controls(),
                           ),
                     ),
                   ],
                 );
-              }
-
-              return ListView(
-                children: [
-                  player,
-                  //  const VideoPositionIndicator(),
-                  // const Controls(),
-                  StartStopFavBar(),
+              } */
+          body: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromARGB(255, 27, 40, 62),
+                  Color.fromARGB(255, 146, 110, 124)
                 ],
-              );
-            },
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                if (kIsWeb && constraints.maxWidth > 750) {
+                  return Container(
+                    width: screenWidth,
+                    height: screenHeight,
+                    child: Center(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            flex: 4,
+                            child: Align(
+                                alignment: Alignment.center,
+                                child: AspectRatio(
+                                  aspectRatio: 16 / 9,
+                                  child: Column(
+                                    children: [
+                                      player, /*StartStopFavBar()*/
+                                    ],
+                                  ),
+                                )
+                                //   const VideoPositionIndicator(),
+                                ),
+                          ),
+                          Flexible(
+                            flex: 2,
+                            child: Column(children: [
+                              const Controls(),
+                              const Spacer(),
+                              StartStopFavBar(),
+                              const Spacer(),
+                            ]),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                }
+                return ListView(
+                  children: [
+                    player,
+                    //  const VideoPositionIndicator(),
+                    const Controls(),
+                    StartStopFavBar(),
+                    const Spacer(),
+                  ],
+                );
+              },
+            ),
           ),
         );
       },
@@ -194,11 +257,13 @@ _signOut() async {
 }
 
 class ControlButtons extends StatelessWidget {
+  const ControlButtons({super.key});
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Padding(
-      padding: const EdgeInsets.all(16),
+    return const Padding(
+      padding: EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -212,7 +277,7 @@ class ControlButtons extends StatelessWidget {
 ///
 class Controls extends StatelessWidget {
   ///
-  const Controls();
+  const Controls({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -221,15 +286,15 @@ class Controls extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MetaDataSection(),
-          _space,
-          SourceInputSection(),
-          _space,
+          // MetaDataSection(),
+          // _space,
+          // SourceInputSection(),
+          // _space,
           PlayPauseButtonBar(),
-          _space,
-          const VideoPositionSeeker(),
-          _space,
-          PlayerStateSection(),
+          // _space,
+          // const VideoPositionSeeker(),
+          // _space,
+          //PlayerStateSection(),
         ],
       ),
     );

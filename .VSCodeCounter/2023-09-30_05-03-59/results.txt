@@ -1,0 +1,31 @@
+Date : 2023-09-30 05:03:59
+Directory : /Users/sumod.thomas/Documents/flutter_projects/meditation4/lib/widgets
+Total : 7 files,  950 codes, 82 comments, 108 blanks, all 1140 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Dart     |          7 |        950 |         82 |        108 |      1,140 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                               | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                  |          7 |        950 |         82 |        108 |      1,140 |
++----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                           | language | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| /Users/sumod.thomas/Documents/flutter_projects/meditation4/lib/widgets/meta_data_section.dart      | Dart     |         89 |          4 |          6 |         99 |
+| /Users/sumod.thomas/Documents/flutter_projects/meditation4/lib/widgets/play_pause_button_bar.dart  | Dart     |         51 |          4 |          3 |         58 |
+| /Users/sumod.thomas/Documents/flutter_projects/meditation4/lib/widgets/player_state_section.dart   | Dart     |         48 |          4 |          4 |         56 |
+| /Users/sumod.thomas/Documents/flutter_projects/meditation4/lib/widgets/source_input_section.dart   | Dart     |        216 |          4 |         19 |        239 |
+| /Users/sumod.thomas/Documents/flutter_projects/meditation4/lib/widgets/start_stop_fav_section.dart | Dart     |        201 |         29 |         26 |        256 |
+| /Users/sumod.thomas/Documents/flutter_projects/meditation4/lib/widgets/video_list_page.dart        | Dart     |         75 |          2 |         13 |         90 |
+| /Users/sumod.thomas/Documents/flutter_projects/meditation4/lib/widgets/youtube_frame.dart          | Dart     |        270 |         35 |         37 |        342 |
+| Total                                                                                              |          |        950 |         82 |        108 |      1,140 |
++----------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

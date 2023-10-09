@@ -30,7 +30,17 @@ class _SignInPageState extends State<SignInPage> {
         child: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          color: Colors.black,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(255, 27, 40, 62),
+                Color.fromARGB(255, 146, 110, 124)
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+          // color: Colors.black,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -74,7 +84,7 @@ class _SignInPageState extends State<SignInPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    "If you don't have an Account? ",
+                    "Don't have an account? ",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -89,7 +99,7 @@ class _SignInPageState extends State<SignInPage> {
                           (route) => false);
                     },
                     child: const Text(
-                      "SignUp",
+                      "Sign Up",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,
@@ -110,7 +120,7 @@ class _SignInPageState extends State<SignInPage> {
                       (route) => false);
                 },
                 child: const Text(
-                  "Forgot Password?",
+                  "Forgot your password?",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
@@ -156,9 +166,9 @@ class _SignInPageState extends State<SignInPage> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           gradient: const LinearGradient(colors: [
-            Color(0xfffd746c),
-            Color(0xffff9068),
-            Color(0xfffd746c)
+            Color.fromARGB(255, 49, 49, 75),
+            Color.fromARGB(255, 79, 79, 107),
+            Color.fromARGB(255, 49, 49, 75)
           ]),
         ),
         child: Center(
@@ -184,7 +194,7 @@ class _SignInPageState extends State<SignInPage> {
         width: MediaQuery.of(context).size.width - 60,
         height: 60,
         child: Card(
-          color: Colors.black,
+          color: const Color.fromARGB(255, 49, 49, 75),
           elevation: 8,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
@@ -240,7 +250,7 @@ class _SignInPageState extends State<SignInPage> {
             borderRadius: BorderRadius.circular(15),
             borderSide: const BorderSide(
               width: 1.5,
-              color: Colors.amber,
+              color: Color.fromARGB(255, 52, 46, 91),
             ),
           ),
           enabledBorder: OutlineInputBorder(

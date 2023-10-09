@@ -29,18 +29,30 @@ class _SignUpPageState extends State<SignUpPage> {
         child: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          color: Colors.black,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(255, 27, 40, 62),
+                Color.fromARGB(255, 146, 110, 124)
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              //const Text("Welcome to AmbientStudy!", style: TextStyle(fontSize: 35, color: Colors.white, fontWeight: FontWeight.bold)
               const Text(
-                "Sign Up",
+                "Welcome to Ambient Study!",
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 35,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
               ),
+
               const SizedBox(
                 height: 20,
               ),
@@ -74,7 +86,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    "If you already have an Account? ",
+                    "Already have an account? ",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -90,7 +102,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           (route) => false);
                     },
                     child: const Text(
-                      "Login",
+                      "Log In",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,
@@ -140,9 +152,9 @@ class _SignUpPageState extends State<SignUpPage> {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             gradient: const LinearGradient(colors: [
-              Color(0xfffd746c),
-              Color(0xfffd9068),
-              Color(0xfffd746c)
+              Color.fromARGB(255, 49, 49, 75),
+              Color.fromARGB(255, 79, 79, 107),
+              Color.fromARGB(255, 49, 49, 75)
             ])),
         child: Center(
           child: circular
@@ -167,7 +179,7 @@ class _SignUpPageState extends State<SignUpPage> {
         width: MediaQuery.of(context).size.width - 60,
         height: 60,
         child: Card(
-          color: Colors.black,
+          color: const Color.fromARGB(255, 49, 49, 75),
           elevation: 8,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
@@ -218,7 +230,8 @@ class _SignUpPageState extends State<SignUpPage> {
             labelStyle: const TextStyle(fontSize: 17, color: Colors.white),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(15),
-                borderSide: const BorderSide(width: 1.5, color: Colors.amber)),
+                borderSide: const BorderSide(
+                    width: 1.5, color: Color.fromARGB(255, 52, 46, 91))),
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(15),
                 borderSide: const BorderSide(width: 1, color: Colors.grey))),

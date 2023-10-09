@@ -50,43 +50,95 @@ class _StartStopFavBar extends State {
     String focusImagePath = "assets/focus.svg";
     String relaxImagePath = "assets/relax.svg";
 
-    return Center(
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-        //   buttonItem(25, "Start", "Start", MediaQuery.of(context).size.width / 2,   focusImagePath),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if ((constraints.maxWidth > 500)) {
+          return Center(
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  //   buttonItem(25, "Start", "Start", MediaQuery.of(context).size.width / 2,   focusImagePath),
 
-        Visibility(
-            visible: visStart,
-            //child: ElevatedButton(
-            //  onPressed: () {
-            //  changeText("Start");
-            //},
-            child: buttonItem(25, "Start", "Start",
-                MediaQuery.of(context).size.width / 3, focusImagePath)),
+                  Visibility(
+                      visible: visStart,
+                      //child: ElevatedButton(
+                      //  onPressed: () {
+                      //  changeText("Start");
+                      //},
+                      child: buttonItem(
+                          25,
+                          "Start",
+                          "Start",
+                          MediaQuery.of(context).size.width / 3,
+                          focusImagePath)),
 
-        Visibility(
-          visible: visStop,
-          /*  child: ElevatedButton(
-              onPressed: () {
-                changeText("Stop");
-              },
-              child: const Text("Stop"),*/
-
-          child: buttonItem(25, "Stop", "Stop",
-              MediaQuery.of(context).size.width / 3, relaxImagePath),
-        ),
-        Center(
+                  Visibility(
+                    visible: visStop,
+                    /*  child: ElevatedButton(
+                onPressed: () {
+                  changeText("Stop");
+                },
+                child: const Text("Stop"),*/
+                    child: buttonItem(25, "Stop", "Stop",
+                        MediaQuery.of(context).size.width / 3, relaxImagePath),
+                  ),
+                  Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        buildTime(),
+                        //SizedBox(
+                        //  height: 80,
+                        //  ),
+                        //buildButtons()
+                      ],
+                    ),
+                  ),
+                ]),
+          );
+        }
+        return Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              buildTime(),
-              SizedBox(
-                height: 80,
-              ),
-              //buildButtons()
-            ],
-          ),
-        ),
-      ]),
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                //   buttonItem(25, "Start", "Start", MediaQuery.of(context).size.width / 2,   focusImagePath),
+
+                Visibility(
+                    visible: visStart,
+                    //child: ElevatedButton(
+                    //  onPressed: () {
+                    //  changeText("Start");
+                    //},
+                    child: buttonItem(15, "Start", "Start",
+                        MediaQuery.of(context).size.width / 2, focusImagePath)),
+
+                Visibility(
+                  visible: visStop,
+                  /*  child: ElevatedButton(
+                onPressed: () {
+                  changeText("Stop");
+                },
+                child: const Text("Stop"),*/
+                  child: buttonItem(15, "Stop", "Stop",
+                      MediaQuery.of(context).size.width / 2, relaxImagePath),
+                ),
+                const SizedBox(height: 40),
+                buildTime()
+                /* Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      buildTime(),
+                      //SizedBox(
+                      //  height: 80,
+                      //  ),
+                      //buildButtons()
+                    ],
+                  ),
+                ),*/
+              ]),
+        );
+      },
     );
   }
 
@@ -110,7 +162,7 @@ class _StartStopFavBar extends State {
         width: overallWidth - 60,
         height: 60,
         child: Card(
-          color: Colors.blueGrey,
+          color: Color.fromARGB(30, 226, 240, 246),
           elevation: 8,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
@@ -130,11 +182,14 @@ class _StartStopFavBar extends State {
               const SizedBox(
                 width: 15,
               ),
-              Text(
-                buttonName,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 17,
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  buttonName,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ],
@@ -235,21 +290,21 @@ class _StartStopFavBar extends State {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(20)),
             child: Text(
               time,
-              style: TextStyle(
+              style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
                   fontSize: 50),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 24,
           ),
-          Text(header, style: TextStyle(color: Colors.black45)),
+          Text(header, style: const TextStyle(color: Colors.black45)),
         ],
       );
 }
